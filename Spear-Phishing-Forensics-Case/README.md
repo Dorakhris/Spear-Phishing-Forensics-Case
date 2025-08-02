@@ -39,7 +39,6 @@ The analysis of the `outlook.pst` file revealed a textbook spear-phishing attack
 | **Exfiltration Email (The Payload Delivery)** | Jean Jones's Sent Items (Sent: 2008-07-20 02:28 AM) | Believing the request was real, Jean Jones replied to the spoofed email, attaching `m57biz.xls`. The recipient field confirms the reply went to `tuckgorge@gmail.com`. |
 | **Stolen File** | `m57biz.xls` (on Desktop) | The file containing employee SSNs and salaries was created just before the exfiltration, confirming it was made in direct response to the attacker's request. |
 
-
 ---
 
 ## Screenshots & Logs
@@ -48,22 +47,26 @@ The following visual evidence, extracted directly from the forensic image, provi
 **Exhibit A: Evidence Integrity Verification**
 My first action was to verify the integrity of the disk image using FTK Imager. The matching MD5 and SHA1 hashes confirm that the evidence is an unaltered, forensically sound copy of the original hard drive, making all subsequent findings legally and technically defensible.
 
-![Exhibit A: Hash verification in FTK Imager](https://raw.githubusercontent.com/Dorakhris/Spear-Phishing-Forensics-Case/main/Spear-Phishing-Forensics-Case/images/exhibit-a-hash-verification.png)
+<img width="1366" height="745" alt="exhibit-a-hash-verification png" src="https://github.com/user-attachments/assets/52a00e4f-cf45-45ec-8d7d-73575d9310dd" />
+
 
 **Exhibit B: The Spear-Phishing Email and Spoofed Header**
 Analysis of the `outlook.pst` file revealed the attacker's lure. Note the deceptive `From:` field, designed to look like it came from "alison@m57.biz". The email header, however, provides the "smoking gun," proving the message originated from a DreamHost server (`dreamhostps.com`) and that the actual sending address was `tuckgorge@gmail.com`.
 
-![Exhibit B: Screenshot of the spoofed email header](https://raw.githubusercontent.com/Dorakhris/Spear-Phishing-Forensics-Case/main/Spear-Phishing-Forensics-Case/images/exhibit-b-spoofed-email.png)
+<img width="1366" height="710" alt="exhibit-b-spoofed-email png" src="https://github.com/user-attachments/assets/f9ecf567-6afe-4439-a2aa-3aaf057dad69" />
+
 
 **Exhibit C: The Exfiltration Event**
 The "Sent Items" folder provides a clear record of the data exfiltration. This screenshot shows Jean Jones's reply, with the sensitive spreadsheet `m57biz.xls` attached, being sent directly to the attacker's `tuckgorge@gmail.com` address. This is the exact moment the data breach occurred.
 
-![Exhibit C: Screenshot of the sent item with the malicious attachment](https://raw.githubusercontent.com/Dorakhris/Spear-Phishing-Forensics-Case/main/Spear-Phishing-Forensics-Case/images/exhibit-c-exfiltration-sent-item.png)
+<img width="1357" height="707" alt="exhibit-c-exfiltration-sent-item png" src="https://github.com/user-attachments/assets/5695a6d0-a3eb-4d12-95fb-d4fe8068527d" />
+
 
 **Exhibit D: Corroborating File System Evidence**
 To complete the timeline, I analyzed the file system in FTK Imager. The metadata for `m57biz.xls` shows it was created on Jean's desktop at 1:28:03 AM on July 20, 2008. This is just one hour before she sent the exfiltration email, confirming she created the file specifically in response to the attacker's fraudulent request.
 
-![Exhibit D: Screenshot of FTK Imager showing file metadata](https://raw.githubusercontent.com/Dorakhris/Spear-Phishing-Forensics-Case/main/Spear-Phishing-Forensics-Case/images/exhibit-d-filesystem-metadata.png)
+<img width="1366" height="749" alt="exhibit-d-filesystem-metadata png" src="https://github.com/user-attachments/assets/fde6aaf1-e72a-4d93-a581-e745b557c58f" />
+
 
 ---
 ## Conclusion
@@ -83,6 +86,7 @@ This case was a powerful reminder that the most sophisticated security stacks ca
 
 
 #DigitalForensics #DFIR #IncidentResponse #SpearPhishing #EmailForensics #SocialEngineering #FTKImager
+
 
 
 
